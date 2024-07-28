@@ -14,6 +14,7 @@ const counterModule = {
             state.counter = state.counter + 2;
         },
         increase(state, payload) {
+            console.log(state);
             state.counter = state.counter + payload.value;
         },
     },
@@ -30,6 +31,10 @@ const counterModule = {
         },
     },
     getters: {
+        // it won't work - state is local
+        // testAuth(state) {
+        //     return state.isLoggedIn
+        // },
         finalCounter(state) {
             return state.counter * 2;
         },
