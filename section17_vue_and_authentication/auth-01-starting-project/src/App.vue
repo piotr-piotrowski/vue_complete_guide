@@ -14,8 +14,22 @@ export default {
   components: {
     TheHeader
   },
+  computed: {
+    didAutoLogout() {
+      console.log("didAutoLogout prop: " + this.$store.getters.didAutoLogout);
+      return this.$store.getters.didAutoLogout;
+    }
+  },
   created() {
     this.$store.dispatch('tryLogin');
+  },
+  watch: {
+    didAutoLogout(newValue, oldValue) {
+      console.log(newValue + ' ' + oldValue);
+      if (newValue && newValue !== oldValue) {
+        this.$router.replace('/coaches');
+      }
+    }
   }
 }
 </script>
