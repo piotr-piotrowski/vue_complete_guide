@@ -9,7 +9,6 @@ export default {
       areas: data.areas
     };
 
-    console.log("token=" + context.rootGetters.token);
     const token = context.rootGetters.token;
 
     const response = await fetch(
