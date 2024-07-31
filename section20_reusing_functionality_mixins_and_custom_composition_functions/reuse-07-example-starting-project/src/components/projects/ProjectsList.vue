@@ -32,7 +32,7 @@ export default {
     const { enteredSearchTerm, availableItems, updateSearch } = useSearch(projects, 'title');
 
     const hasProjects = computed(function () {
-      return projects.value && availableItems.value.length > 0;
+      return user.value.projects && availableItems.value.length > 0;
     });
 
 
