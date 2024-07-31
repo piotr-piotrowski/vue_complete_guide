@@ -4,12 +4,12 @@
 </template>
 
 <script>
-import { computed, inject } from 'vue';
+import { computed, inject, onBeforeMount, onMounted, onBeforeUpdate, onUpdated, onBeforeUnmount, onUnmounted } from 'vue';
 
 export default {
     props: ['firstName', 'lastName'],
     setup(props, context) {
-        const userName = computed(function() {
+        const userName = computed(function () {
             return props.firstName + ' ' + props.lastName;
         });
 
@@ -17,9 +17,34 @@ export default {
 
         console.log(context);
 
+        onBeforeMount(function () {
+            console.log('onBeforeMount');
+        });
+
+        onMounted(function () {
+            console.log('onMounted');
+        });
+
+        onBeforeUpdate(function () {
+            console.log('onBeforeUpdate');
+        });
+
+        onUpdated(function () {
+            console.log('onUpdated');
+        });
+
+        onBeforeUnmount(function () {
+            console.log('onBeforeUnmount');
+        });
+
+        onUnmounted(function () {
+            console.log('onUnmounted');
+        })
+
+
         // context.emit('save-data', 1); // this.$emit('save-data', 1);
 
-        return {userName, age};
+        return { userName, age };
     }
     // computed: {
     //     userName() {
